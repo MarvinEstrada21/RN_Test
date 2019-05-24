@@ -3,14 +3,12 @@ import {
   ScrollView,
   StyleSheet,
   TouchableOpacity,
-  Image,
-  ImageBackground,
   Dimensions
 } from 'react-native';
-import { Button, Block, Text, Input, theme } from 'galio-framework';
+import { Button, Block, Text,  theme } from 'galio-framework';
 
-import { materialTheme, products, Images } from '../constants/';
-import { Select, Icon, Header, Product, Switch } from '../components/';
+import { materialTheme } from '../constants/';
+import { Icon, Switch } from '../components/';
 
 const { width } = Dimensions.get('screen');
 const thumbMeasure = (width - 48 - 32) / 3;
