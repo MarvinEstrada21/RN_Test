@@ -11,9 +11,8 @@ import { Button, Block, Text, Input, theme } from 'galio-framework';
 
 import { materialTheme, products, Images } from '../constants/';
 import { Select, Icon, Header, Product, Switch } from '../components/';
-const { height, width } = Dimensions.get('screen');
 
-//const { width } = Dimensions.get('screen');
+const { width } = Dimensions.get('screen');
 
 const thumbMeasure = (width - 48 - 32) / 3;
 
@@ -26,7 +25,6 @@ export default class Components extends React.Component {
   toggleSwitch = switchId => this.setState({ [switchId]: !this.state[switchId] });
 
   renderButtons = () => {
-    const { navigation } = this.props;
     return (
       <Block flex>
         {/*<Text bold size={16} style={styles.title}>Buttons</Text>*/}
@@ -53,7 +51,7 @@ export default class Components extends React.Component {
             </Button>
           </Block>
           <Block center>
-            <Button onPress={() => navigation.navigate('Water')} shadowless color="warning" style={[styles.button, styles.shadow]}>
+            <Button shadowless color="warning" style={[styles.button, styles.shadow]}>
               Water
             </Button>
           </Block>
@@ -164,22 +162,5 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     width: thumbMeasure,
     height: thumbMeasure
-  },
-});
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: theme.COLORS.BLACK,
-  },
-  padded: {
-    paddingHorizontal: theme.SIZES.BASE * 2,
-    position: 'relative',
-    bottom: theme.SIZES.BASE,
-  },
-  button: {
-    width: width - theme.SIZES.BASE * 4,
-    height: theme.SIZES.BASE * 3,
-    shadowRadius: 0,
-    shadowOpacity: 0,
   },
 });
