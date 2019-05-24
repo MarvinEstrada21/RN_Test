@@ -11,64 +11,101 @@ import { Button, Block, Text, Input, theme } from 'galio-framework';
 
 import { materialTheme, products, Images } from '../constants/';
 import { Select, Icon, Header, Product, Switch } from '../components/';
-const { height, width } = Dimensions.get('screen');
 
-//const { width } = Dimensions.get('screen');
-
+const { width } = Dimensions.get('screen');
 const thumbMeasure = (width - 48 - 32) / 3;
+//const { navigation } = this.props;
+
 
 export default class Components extends React.Component {
-  state = {
-    'switch-1': true,
-    'switch-2': false,
-  };
+  state = {};
 
-  toggleSwitch = switchId => this.setState({ [switchId]: !this.state[switchId] });
+  toggleSwitch = switchNumber => this.setState({ [switchNumber]: !this.state[switchNumber] });
 
-  renderButtons = () => {
-    const { navigation } = this.props;
-    return (
-      <Block flex>
-        {/*<Text bold size={16} style={styles.title}>Buttons</Text>*/}
-        <Text>{"\n"}</Text>
-        <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
-          <Block center>
-            <Button shadowless color={materialTheme.COLORS.DEFAULT} style={[styles.button, styles.shadow]}>
-              Date
-            </Button>
+  renderItem = ({ item }) => {
+    const {navigate} = this.props.navigation;
+
+    switch(item.type) {
+      case 'switch': 
+        return (
+          <Block row middle space="between" style={styles.rows}>
+            <Text size={14}>{item.title}</Text>
+            <Switch
+              onValueChange={() => this.toggleSwitch(item.id)}
+              ios_backgroundColor={materialTheme.COLORS.SWITCH_OFF}
+              thumbColor={Platform.OS === 'android' ? materialTheme.COLORS.SWITCH_OFF : null}
+              trackColor={{ false: materialTheme.COLORS.SWITCH_OFF, true: materialTheme.COLORS.SWITCH_ON }}
+              value={this.state[item.id]}
+            />
           </Block>
-          <Block center>
-            <Button shadowless style={[styles.button, styles.shadow]}>
-              Hours of Sleep
-            </Button>
-          </Block>
-          <Block center>
-            <Button shadowless color="info" style={[styles.button, styles.shadow]}>
-              Weight
-            </Button>
-          </Block>
-          <Block center>
-            <Button shadowless color="success" style={[styles.button, styles.shadow]}>
-              Steps
-            </Button>
-          </Block>
-          <Block center>
-            <Button onPress={() => navigation.navigate('Water')} shadowless color="warning" style={[styles.button, styles.shadow]}>
-              Water
-            </Button>
-          </Block>
-        </Block>
-      </Block>
-    )
+        );
+      case 'button': 
+        return (
+          <Block style={styles.rows}>
+            <TouchableOpacity onPress={() => navigate('Pro')}>
+              <Block row middle space="between" style={{paddingTop:7}}>
+                <Text size={14}>{item.title}</Text>
+                <Icon name="stre-right" family="Galio" style={{ paddingRight: 5 }} />
+              </Block>
+            </TouchableOpacity>
+          </Block>);
+      default:
+        break;
+    }
   }
 
   render() {
+    const { navigation } = this.props;
     return (
       <Block flex center>
         <ScrollView
           style={styles.components}
           showsVerticalScrollIndicator={false}>
-          {this.renderButtons()}
+          {/*{this.renderButtons()}*/}
+          <Block flex>
+            {/*<Text bold size={16} style={styles.title}>Buttons</Text>*/}
+            <Text>{"\n"}</Text>
+            <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
+              <Block center>
+                <Button
+                  shadowless color={materialTheme.COLORS.DEFAULT}
+                  style={[styles.button, styles.shadow]}>
+                  Date
+            </Button>
+              </Block>
+              <Block center>
+                <Button
+                  onPress={() => navigation.navigate('Hours_Sleep')}
+                  shadowless style={[styles.button, styles.shadow]}>
+                  Hours of Sleep
+            </Button>
+              </Block>
+              <Block center>
+                <Button
+                  onPress={() => navigation.navigate('Weight')}
+                  shadowless color="info"
+                  style={[styles.button, styles.shadow]}>
+                  Weight
+            </Button>
+              </Block>
+              <Block center>
+                <Button
+                  onPress={() => navigation.navigate('Steps')}
+                  shadowless color="success"
+                  style={[styles.button, styles.shadow]}>
+                  Steps
+            </Button>
+              </Block>
+              <Block center>
+                <Button
+                  onPress={() => navigation.navigate('Water')}
+                  shadowless color="warning"
+                  style={[styles.button, styles.shadow]}>
+                  Water
+            </Button>
+              </Block>
+            </Block>
+          </Block>
         </ScrollView>
       </Block>
     );
@@ -164,22 +201,5 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     width: thumbMeasure,
     height: thumbMeasure
-  },
-});
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: theme.COLORS.BLACK,
-  },
-  padded: {
-    paddingHorizontal: theme.SIZES.BASE * 2,
-    position: 'relative',
-    bottom: theme.SIZES.BASE,
-  },
-  button: {
-    width: width - theme.SIZES.BASE * 4,
-    height: theme.SIZES.BASE * 3,
-    shadowRadius: 0,
-    shadowOpacity: 0,
   },
 });

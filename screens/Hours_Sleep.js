@@ -4,7 +4,7 @@ import { Block, Text, theme, Icon } from "galio-framework";
 
 import materialTheme from '../constants/Theme';
 
-export default class Water extends React.Component {
+export default class Hours_Sleep extends React.Component {
   state = {};
 
   toggleSwitch = switchNumber => this.setState({ [switchNumber]: !this.state[switchNumber] });
@@ -44,7 +44,7 @@ export default class Water extends React.Component {
   render() {
     return (
       <ScrollView>
-        <Text>This is the water screen</Text>
+        <Text>This is the hours of sleep screen</Text>
       </ScrollView>
       
     );

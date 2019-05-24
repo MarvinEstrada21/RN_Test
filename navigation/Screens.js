@@ -10,6 +10,10 @@ import OnboardingScreen from '../screens/Onboarding';
 import ProfileScreen from '../screens/Profile';
 import ProScreen from '../screens/Pro';
 import SettingsScreen from '../screens/Settings';
+import WaterScreen from '../screens/Water';
+import StepsScreen from '../screens/Steps';
+import WeightScreen from '../screens/Weight';
+import Hours_SleepScreen from '../screens/Hours_Sleep';
 
 import Menu from './Menu';
 import Header from '../components/Header';
@@ -86,6 +90,30 @@ const HomeStack = createStackNavigator({
     screen: SettingsScreen,
     navigationOptions: ({navigation}) => ({
       header: <Header back title="Settings" navigation={navigation} />,
+    })
+  },
+  Water: {
+    screen: WaterScreen,
+    navigationOptions: ({navigation}) => ({
+      header: <Header back title="Water" navigation={navigation} />,
+    })
+  },
+  Steps: {
+    screen: StepsScreen,
+    navigationOptions: ({navigation}) => ({
+      header: <Header back title="Steps" navigation={navigation} />,
+    })
+  },
+  Weight: {
+    screen: WeightScreen,
+    navigationOptions: ({navigation}) => ({
+      header: <Header back title="Weight" navigation={navigation} />,
+    })
+  },
+  Hours_Sleep: {
+    screen: Hours_SleepScreen,
+    navigationOptions: ({navigation}) => ({
+      header: <Header back title="Hours of Sleep" navigation={navigation} />,
     })
   },
   Components: {
