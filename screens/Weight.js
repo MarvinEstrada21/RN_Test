@@ -16,9 +16,11 @@ export default class Weight extends React.Component {
   }
 
   decrementCount = () => {
-    this.setState((prevState, props) => ({
-      quantity: prevState.quantity - 1
-    }));
+    this.setState((prevState, props) => {
+      if (prevState.quantity - 1 >= 0) {
+        return { quantity: prevState.quantity - 1 };
+      }
+    });
   }
 
   incrementCount = () => {
