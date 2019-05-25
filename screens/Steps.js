@@ -5,15 +5,28 @@ import { Block, Text, theme, Icon } from "galio-framework";
 import materialTheme from '../constants/Theme';
 
 export default class Steps extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      steps: 0
+    }
+    this.setSteps = this.setSteps.bind(this)
+  }
+
+  setSteps = () => {
+    this.setState((prevState, props) => ({
+      quantity: prevState.steps + 0.25
+    }));
+  }
   state = {};
 
   toggleSwitch = switchNumber => this.setState({ [switchNumber]: !this.state[switchNumber] });
 
   renderItem = ({ item }) => {
-    const {navigate} = this.props.navigation;
+    const { navigate } = this.props.navigation;
 
-    switch(item.type) {
-      case 'switch': 
+    switch (item.type) {
+      case 'switch':
         return (
           <Block row middle space="between" style={styles.rows}>
             <Text size={14}>{item.title}</Text>
@@ -26,11 +39,11 @@ export default class Steps extends React.Component {
             />
           </Block>
         );
-      case 'button': 
+      case 'button':
         return (
           <Block style={styles.rows}>
             <TouchableOpacity onPress={() => navigate('Pro')}>
-              <Block row middle space="between" style={{paddingTop:7}}>
+              <Block row middle space="between" style={{ paddingTop: 7 }}>
                 <Text size={14}>{item.title}</Text>
                 <Icon name="stre-right" family="Galio" style={{ paddingRight: 5 }} />
               </Block>
@@ -44,9 +57,9 @@ export default class Steps extends React.Component {
   render() {
     return (
       <ScrollView>
-        <Text>This is the steps screen</Text>
+
       </ScrollView>
-      
+
     );
   }
 }
