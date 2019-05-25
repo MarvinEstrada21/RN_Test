@@ -26,18 +26,18 @@ export default class Water extends React.Component {
     this.incrementCount = this.incrementCount.bind(this)
   }
 
-  decrementCount=()=>{
+  decrementCount = () => {
     this.setState((prevState, props) => ({
-       quantity: prevState.quantity - 1
-     }));
+      quantity: prevState.quantity - 1
+    }));
   }
 
-  incrementCount=()=>{
+  incrementCount = () => {
     this.setState((prevState, props) => ({
-       quantity: prevState.quantity + 1
-     }));
+      quantity: prevState.quantity + 1
+    }));
   }
-  
+
   state = {};
 
   toggleSwitch = switchNumber => this.setState({ [switchNumber]: !this.state[switchNumber] });

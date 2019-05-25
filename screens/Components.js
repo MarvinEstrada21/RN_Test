@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   Dimensions
 } from 'react-native';
-import { Button, Block, Text,  theme } from 'galio-framework';
+import { Button, Block, Text, theme } from 'galio-framework';
 
 import { materialTheme } from '../constants/';
 import { Icon, Switch } from '../components/';
@@ -13,7 +13,9 @@ import { Icon, Switch } from '../components/';
 const { width } = Dimensions.get('screen');
 const thumbMeasure = (width - 48 - 32) / 3;
 //const { navigation } = this.props;
-
+var day = new Date().getDate(); //Current Date
+var month = new Date().getMonth() + 1; //Current Month
+var year = new Date().getFullYear(); //Current Year
 
 export default class Components extends React.Component {
   state = {};
@@ -21,10 +23,10 @@ export default class Components extends React.Component {
   toggleSwitch = switchNumber => this.setState({ [switchNumber]: !this.state[switchNumber] });
 
   renderItem = ({ item }) => {
-    const {navigate} = this.props.navigation;
+    const { navigate } = this.props.navigation;
 
-    switch(item.type) {
-      case 'switch': 
+    switch (item.type) {
+      case 'switch':
         return (
           <Block row middle space="between" style={styles.rows}>
             <Text size={14}>{item.title}</Text>
@@ -37,11 +39,11 @@ export default class Components extends React.Component {
             />
           </Block>
         );
-      case 'button': 
+      case 'button':
         return (
           <Block style={styles.rows}>
             <TouchableOpacity onPress={() => navigate('Pro')}>
-              <Block row middle space="between" style={{paddingTop:7}}>
+              <Block row middle space="between" style={{ paddingTop: 7 }}>
                 <Text size={14}>{item.title}</Text>
                 <Icon name="stre-right" family="Galio" style={{ paddingRight: 5 }} />
               </Block>
@@ -65,11 +67,8 @@ export default class Components extends React.Component {
             <Text>{"\n"}</Text>
             <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
               <Block center>
-                <Button
-                  shadowless color={materialTheme.COLORS.DEFAULT}
-                  style={[styles.button, styles.shadow]}>
-                  Date
-            </Button>
+                <Text size={24}>{day} - {month} - {year}</Text>
+                <Text>{"\n"}{"\n"}{"\n"}</Text>
               </Block>
               <Block center>
                 <Button
