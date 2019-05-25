@@ -5,14 +5,13 @@ import {
   TouchableOpacity,
   Dimensions
 } from 'react-native';
-import { Button, Block, Text, theme } from 'galio-framework';
+import { Button, Block, Text,  theme } from 'galio-framework';
 
 import { materialTheme } from '../constants/';
 import { Icon, Switch } from '../components/';
 
 const { width } = Dimensions.get('screen');
 const thumbMeasure = (width - 48 - 32) / 3;
-//const { navigation } = this.props;
 var day = new Date().getDate(); //Current Date
 var month = new Date().getMonth() + 1; //Current Month
 var year = new Date().getFullYear(); //Current Year
@@ -23,10 +22,10 @@ export default class Components extends React.Component {
   toggleSwitch = switchNumber => this.setState({ [switchNumber]: !this.state[switchNumber] });
 
   renderItem = ({ item }) => {
-    const { navigate } = this.props.navigation;
+    const {navigate} = this.props.navigation;
 
-    switch (item.type) {
-      case 'switch':
+    switch(item.type) {
+      case 'switch': 
         return (
           <Block row middle space="between" style={styles.rows}>
             <Text size={14}>{item.title}</Text>
@@ -39,11 +38,11 @@ export default class Components extends React.Component {
             />
           </Block>
         );
-      case 'button':
+      case 'button': 
         return (
           <Block style={styles.rows}>
             <TouchableOpacity onPress={() => navigate('Pro')}>
-              <Block row middle space="between" style={{ paddingTop: 7 }}>
+              <Block row middle space="between" style={{paddingTop:7}}>
                 <Text size={14}>{item.title}</Text>
                 <Icon name="stre-right" family="Galio" style={{ paddingRight: 5 }} />
               </Block>
@@ -74,7 +73,7 @@ export default class Components extends React.Component {
                 <Button
                   onPress={() => navigation.navigate('Hours_Sleep')}
                   shadowless style={[styles.button, styles.shadow]}>
-                  Hours of Sleep
+                  Horas de Sueño
             </Button>
               </Block>
               <Block center>
@@ -82,7 +81,7 @@ export default class Components extends React.Component {
                   onPress={() => navigation.navigate('Weight')}
                   shadowless color="info"
                   style={[styles.button, styles.shadow]}>
-                  Weight
+                  Peso
             </Button>
               </Block>
               <Block center>
@@ -90,7 +89,7 @@ export default class Components extends React.Component {
                   onPress={() => navigation.navigate('Steps')}
                   shadowless color="success"
                   style={[styles.button, styles.shadow]}>
-                  Steps
+                  Pasos
             </Button>
               </Block>
               <Block center>
@@ -98,7 +97,7 @@ export default class Components extends React.Component {
                   onPress={() => navigation.navigate('Water')}
                   shadowless color="warning"
                   style={[styles.button, styles.shadow]}>
-                  Water
+                  Agua
             </Button>
               </Block>
             </Block>

@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, Switch, FlatList, Platform, TouchableOpacity, ScrollView } from "react-native";
+import { StyleSheet, Switch,  Platform, TouchableOpacity, ScrollView, Image } from "react-native";
 import { Block, Text, theme, Icon } from "galio-framework";
 
 import materialTheme from '../constants/Theme';
+import SleepPic from '../images/sleep4.jpg';
 
 export default class Hours_Sleep extends React.Component {
   state = {};
@@ -44,7 +45,13 @@ export default class Hours_Sleep extends React.Component {
   render() {
     return (
       <ScrollView>
-        <Text>This is the hours of sleep screen</Text>
+        <Block center>
+          <Text>{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}</Text>
+          <Image 
+            source = {(SleepPic)}
+            style={{ width: 200, height: 200 }}
+          />
+        </Block>
       </ScrollView>
       
     );
@@ -52,7 +59,7 @@ export default class Hours_Sleep extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  water: {
+  hours_sleep: {
     paddingVertical: theme.SIZES.BASE / 3,
   },
   title: {

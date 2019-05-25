@@ -95,31 +95,31 @@ const HomeStack = createStackNavigator({
   Water: {
     screen: WaterScreen,
     navigationOptions: ({navigation}) => ({
-      header: <Header back title="Water" navigation={navigation} />,
+      header: <Header back title="Agua" navigation={navigation} />,
     })
   },
   Steps: {
     screen: StepsScreen,
     navigationOptions: ({navigation}) => ({
-      header: <Header back title="Steps" navigation={navigation} />,
+      header: <Header back title="Pasos" navigation={navigation} />,
     })
   },
   Weight: {
     screen: WeightScreen,
     navigationOptions: ({navigation}) => ({
-      header: <Header back title="Weight" navigation={navigation} />,
+      header: <Header back title="Peso" navigation={navigation} />,
     })
   },
   Hours_Sleep: {
     screen: Hours_SleepScreen,
     navigationOptions: ({navigation}) => ({
-      header: <Header back title="Hours of Sleep" navigation={navigation} />,
+      header: <Header back title="Horas de Sueño" navigation={navigation} />,
     })
   },
   Components: {
     screen: ComponentsScreen,
     navigationOptions: ({navigation}) => ({
-      header: <Header title="Entries" navigation={navigation} />,
+      header: <Header title="Diario" navigation={navigation} />,
     })
   },
   Profile: {
@@ -212,7 +212,7 @@ const AppStack = createDrawerNavigator(
       screen: ComponentsStack,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Components" title="Entries" />
+          <Drawer focused={focused} screen="Components" title="Diario" />
         ),
       }),
     },
