@@ -3,12 +3,14 @@ import {
   ScrollView,
   StyleSheet,
   TouchableOpacity,
-  Dimensions
+  Dimensions,
+  ImageBackground
 } from 'react-native';
 import { Button, Block, Text,  theme } from 'galio-framework';
 
 import { materialTheme } from '../constants/';
 import { Icon, Switch } from '../components/';
+import fruits from '../images/fruits.jpg';
 
 const { width } = Dimensions.get('screen');
 const thumbMeasure = (width - 48 - 32) / 3;
@@ -56,10 +58,12 @@ export default class Components extends React.Component {
   render() {
     const { navigation } = this.props;
     return (
-      <Block flex center>
+      <Block flex center
+      ImageBackground = {{fruits}}> 
         <ScrollView
           style={styles.components}
-          showsVerticalScrollIndicator={false}>
+          showsVerticalScrollIndicator={false}
+          >
           {/*{this.renderButtons()}*/}
           <Block flex>
             {/*<Text bold size={16} style={styles.title}>Buttons</Text>*/}

@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, Switch, FlatList, Platform, TouchableOpacity, ScrollView, View, TextInput } from "react-native";
+import { StyleSheet, Switch, FlatList, Platform, TouchableOpacity, ScrollView, View, TextInput, Image } from "react-native";
 import { Block, Text, theme, Icon } from "galio-framework";
 
 import materialTheme from '../constants/Theme';
+import steps from '../images/steps2.png';
 
 export default class Steps extends React.Component {
   constructor(props) {
@@ -57,13 +58,20 @@ export default class Steps extends React.Component {
   render() {
     return (
       <ScrollView style={{ backgroundColor: '#b0c4de' }}>
-        <Text>{"\n"}{"\n"}</Text>
-        <TextInput
-          fontSize={50}
-          textAlign="center"
-          placeholder={"Ingrese pasos..."}
-          placeholderTextColor="black"
-          keyboardType="numeric"></TextInput>
+        <Block center>
+          <Text>{"\n"}{"\n"}</Text>
+          <TextInput
+            fontSize={50}
+            textAlign="center"
+            placeholder={"Ingrese pasos..."}
+            placeholderTextColor="black"
+            keyboardType="numeric"></TextInput>
+          <Text>{"\n"}{"\n"}{"\n"}</Text>  
+          <Image
+            source={(steps)}
+            style={{ width: 255, height: 270 }}
+          />
+        </Block>
       </ScrollView>
     );
   }

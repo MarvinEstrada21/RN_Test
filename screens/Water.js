@@ -82,12 +82,12 @@ export default class Water extends React.Component {
     return (
       <ScrollView style = {{ backgroundColor: '#7fffd4' }}>
         <Block center>
-          <Text>{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}</Text>
+          <Text>{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}</Text>
           <Text size={30}>{this.state.quantity} L</Text>
           <Text>{"\n"}</Text>
           <Image
             source={(WaterPic)}
-            style={{ width: 200, height: 200 }}
+            style={{ width: 300, height: 300 }}
           />
         </Block>
         <Block center>
