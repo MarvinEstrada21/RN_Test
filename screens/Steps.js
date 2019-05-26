@@ -56,10 +56,14 @@ export default class Steps extends React.Component {
 
   render() {
     return (
-      <ScrollView>
-        <View>
-          <TextInput textAlign={'center'} />
-        </View>
+      <ScrollView style={{ backgroundColor: '#b0c4de' }}>
+        <Text>{"\n"}{"\n"}</Text>
+        <TextInput
+          fontSize={50}
+          textAlign="center"
+          placeholder={"Ingrese pasos..."}
+          placeholderTextColor="black"
+          keyboardType="numeric"></TextInput>
       </ScrollView>
     );
   }
