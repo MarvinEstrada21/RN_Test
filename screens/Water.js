@@ -28,96 +28,96 @@ export default class Water extends React.Component {
 
   decrementCount = () => {
     this.setState((prevState, props) => {
-      if(prevState.quantity - 0.25 >= 0){
+      if (prevState.quantity - 0.25 >= 0) {
         return { quantity: prevState.quantity - 0.25 };
       }
     });
-}
+  }
 
-incrementCount = () => {
-  this.setState((prevState, props) => ({
-    quantity: prevState.quantity + 0.25
-  }));
-}
+  incrementCount = () => {
+    this.setState((prevState, props) => ({
+      quantity: prevState.quantity + 0.25
+    }));
+  }
 
-state = {};
+  state = {};
 
-toggleSwitch = switchNumber => this.setState({ [switchNumber]: !this.state[switchNumber] });
+  toggleSwitch = switchNumber => this.setState({ [switchNumber]: !this.state[switchNumber] });
 
-renderItem = ({ item }) => {
-  const { navigate } = this.props.navigation;
+  renderItem = ({ item }) => {
+    const { navigate } = this.props.navigation;
 
-  switch (item.type) {
-    case 'switch':
-      return (
-        <Block row middle space="between" style={styles.rows}>
-          <Text size={14}>{item.title}</Text>
-          <Switch
-            onValueChange={() => this.toggleSwitch(item.id)}
-            ios_backgroundColor={materialTheme.COLORS.SWITCH_OFF}
-            thumbColor={Platform.OS === 'android' ? materialTheme.COLORS.SWITCH_OFF : null}
-            trackColor={{ false: materialTheme.COLORS.SWITCH_OFF, true: materialTheme.COLORS.SWITCH_ON }}
-            value={this.state[item.id]}
+    switch (item.type) {
+      case 'switch':
+        return (
+          <Block row middle space="between" style={styles.rows}>
+            <Text size={14}>{item.title}</Text>
+            <Switch
+              onValueChange={() => this.toggleSwitch(item.id)}
+              ios_backgroundColor={materialTheme.COLORS.SWITCH_OFF}
+              thumbColor={Platform.OS === 'android' ? materialTheme.COLORS.SWITCH_OFF : null}
+              trackColor={{ false: materialTheme.COLORS.SWITCH_OFF, true: materialTheme.COLORS.SWITCH_ON }}
+              value={this.state[item.id]}
+            />
+          </Block>
+        );
+      case 'button':
+        return (
+          <Block style={styles.rows}>
+            <TouchableOpacity onPress={() => navigate('Pro')}>
+              <Block row middle space="between" style={{ paddingTop: 7 }}>
+                <Text size={14}>{item.title}</Text>
+                <Icon name="stre-right" family="Galio" style={{ paddingRight: 5 }} />
+              </Block>
+            </TouchableOpacity>
+          </Block>);
+      default:
+        break;
+    }
+  }
+
+  render() {
+    //const {navigate} = this.props.navigation;
+    const { navigation } = this.props;
+    return (
+      <ScrollView>
+        <Block center>
+          <Text>{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}</Text>
+          <Text size={20}>{this.state.quantity} L</Text>
+          <Image
+            source={(WaterPic)}
+            style={{ width: 200, height: 200 }}
           />
         </Block>
-      );
-    case 'button':
-      return (
-        <Block style={styles.rows}>
-          <TouchableOpacity onPress={() => navigate('Pro')}>
-            <Block row middle space="between" style={{ paddingTop: 7 }}>
-              <Text size={14}>{item.title}</Text>
-              <Icon name="stre-right" family="Galio" style={{ paddingRight: 5 }} />
-            </Block>
-          </TouchableOpacity>
-        </Block>);
-    default:
-      break;
+        <Block center>
+          <Text>{"\n"}{"\n"}{"\n"}</Text>
+          <View style={styles.container}>
+            <View style={styles.button}>
+              <Button
+                onPress={this.decrementCount}
+                title={'-'}
+                backgroundColor={'#FB6567'}
+                icon={{ name: 'face' }}
+              >
+                {this.state.decrementCount}
+              </Button>
+            </View>
+            <Text>{"              "}</Text>
+            <View style={styles.button}>
+              <Button
+                onPress={this.incrementCount}
+                title={'+'}
+                backgroundColor={'#FB6567'}
+                icon={{ name: 'face' }}
+              >
+                {this.state.quantity}
+              </Button>
+            </View>
+          </View>
+        </Block>
+      </ScrollView>
+    );
   }
-}
-
-render() {
-  //const {navigate} = this.props.navigation;
-  const { navigation } = this.props;
-  return (
-    <ScrollView>
-      <Block center>
-        <Text>{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}</Text>
-        <Text size={20}>{this.state.quantity} L</Text>
-        <Image
-          source={(WaterPic)}
-          style={{ width: 200, height: 200 }}
-        />
-      </Block>
-      <Block center>
-        <Text>{"\n"}{"\n"}{"\n"}</Text>
-        <View style={styles.container}>
-          <View style={styles.button}>
-            <Button
-              onPress={this.decrementCount}
-              title={'-'}
-              backgroundColor={'#FB6567'}
-              icon={{ name: 'face' }}
-            >
-              {this.state.decrementCount}
-            </Button>
-          </View>
-          <Text>{"              "}</Text>
-          <View style={styles.button}>
-            <Button
-              onPress={this.incrementCount}
-              title={'+'}
-              backgroundColor={'#FB6567'}
-              icon={{ name: 'face' }}
-            >
-              {this.state.quantity}
-            </Button>
-          </View>
-        </View>
-      </Block>
-    </ScrollView>
-  );
-}
 }
 
 const styles = StyleSheet.create({
