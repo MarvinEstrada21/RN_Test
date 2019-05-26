@@ -67,10 +67,10 @@ export default class Weight extends React.Component {
 
   render() {
     return (
-      <ScrollView>
+      <ScrollView style = {{ backgroundColor: '#ffdab9' }}>
         <Block center>
-          <Text>{"\n"}{"\n"}</Text>
-          <Text size={20}>{this.state.quantity} Lbs</Text>
+          <Text>{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}</Text>
+          <Text size={30}>{this.state.quantity} Lbs</Text>
           <Text>{"\n"}{"\n"}</Text>
           <Image
             source={(WeightPic)}

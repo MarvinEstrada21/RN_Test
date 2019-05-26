@@ -80,10 +80,11 @@ export default class Water extends React.Component {
     //const {navigate} = this.props.navigation;
     const { navigation } = this.props;
     return (
-      <ScrollView>
+      <ScrollView style = {{ backgroundColor: '#7fffd4' }}>
         <Block center>
           <Text>{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}</Text>
-          <Text size={20}>{this.state.quantity} L</Text>
+          <Text size={30}>{this.state.quantity} L</Text>
+          <Text>{"\n"}</Text>
           <Image
             source={(WaterPic)}
             style={{ width: 200, height: 200 }}

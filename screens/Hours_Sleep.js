@@ -65,16 +65,16 @@ export default class Hours_Sleep extends React.Component {
 
   render() {
     return (
-      <ScrollView>
+      <ScrollView style = {{ backgroundColor: '#dda0dd' }}>
         <Block center>
-          <Text>{"\n"}{"\n"}{"\n"}</Text>
+          <Text>{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}</Text>
           <Image
             source={(SleepPic)}
             style={{ width: 250, height: 250 }}
           />
           <Text>{"\n"}</Text>
-          <Text size={20}>Horas:</Text>
-          <Text size={20}>{this.state.quantity}</Text>
+          <Text size={30}>Horas:</Text>
+          <Text size={30}>{this.state.quantity}</Text>
         </Block>
         <Block center>
           <Text></Text>
@@ -128,5 +128,5 @@ const styles = StyleSheet.create({
   button: {
     width: '20%',
     height: 40
-  }
+  },
 });

@@ -56,7 +56,7 @@ export default class Steps extends React.Component {
 
   render() {
     return (
-      <ScrollView>
+      <ScrollView style = {{backgroundColor: '#b0c4de' }}>
 
       </ScrollView>
 
