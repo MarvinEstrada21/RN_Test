@@ -58,53 +58,55 @@ export default class Components extends React.Component {
   render() {
     const { navigation } = this.props;
     return (
-      <ScrollView
-        style={styles.components}
-        showsVerticalScrollIndicator={false}
-      >
-        {/*{this.renderButtons()}*/}
-        <Block flex>
-          {/*<Text bold size={16} style={styles.title}>Buttons</Text>*/}
-          <Text>{"\n"}</Text>
-          <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
-            <Block center>
-              <Text size={24}>{day} - {month} - {year}</Text>
-              <Text>{"\n"}{"\n"}{"\n"}</Text>
-            </Block>
-            <Block center>
-              <Button
-                onPress={() => navigation.navigate('Hours_Sleep')}
-                shadowless style={[styles.button, styles.shadow]}>
-                Horas de Sueño
+      <ImageBackground source={fruits} style={{ width: '100%', height: '100%' }}>
+        <ScrollView
+          style={styles.components}
+          showsVerticalScrollIndicator={false}
+        >
+          {/*{this.renderButtons()}*/}
+          <Block flex>
+            {/*<Text bold size={16} style={styles.title}>Buttons</Text>*/}
+            <Text>{"\n"}</Text>
+            <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
+              <Block center>
+                <Text size={24}>{day} - {month} - {year}</Text>
+                <Text>{"\n"}{"\n"}{"\n"}</Text>
+              </Block>
+              <Block center>
+                <Button
+                  onPress={() => navigation.navigate('Hours_Sleep')}
+                  shadowless style={[styles.button, styles.shadow]}>
+                  Horas de Sueño
             </Button>
-            </Block>
-            <Block center>
-              <Button
-                onPress={() => navigation.navigate('Weight')}
-                shadowless color="info"
-                style={[styles.button, styles.shadow]}>
-                Peso
+              </Block>
+              <Block center>
+                <Button
+                  onPress={() => navigation.navigate('Weight')}
+                  shadowless color="info"
+                  style={[styles.button, styles.shadow]}>
+                  Peso
             </Button>
-            </Block>
-            <Block center>
-              <Button
-                onPress={() => navigation.navigate('Steps')}
-                shadowless color="success"
-                style={[styles.button, styles.shadow]}>
-                Pasos
+              </Block>
+              <Block center>
+                <Button
+                  onPress={() => navigation.navigate('Steps')}
+                  shadowless color="success"
+                  style={[styles.button, styles.shadow]}>
+                  Pasos
             </Button>
-            </Block>
-            <Block center>
-              <Button
-                onPress={() => navigation.navigate('Water')}
-                shadowless color="warning"
-                style={[styles.button, styles.shadow]}>
-                Agua
-            </Button>
+              </Block>
+              <Block center>
+                <Button
+                  onPress={() => navigation.navigate('Water')}
+                  shadowless color="warning"
+                  style={[styles.button, styles.shadow]}>
+                  Agua
+                </Button>
+              </Block>
             </Block>
           </Block>
-        </Block>
-      </ScrollView>
+        </ScrollView>
+      </ImageBackground>
     );
   }
 }
