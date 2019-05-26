@@ -6,7 +6,7 @@ import {
   Dimensions,
   ImageBackground
 } from 'react-native';
-import { Button, Block, Text,  theme } from 'galio-framework';
+import { Button, Block, Text, theme } from 'galio-framework';
 
 import { materialTheme } from '../constants/';
 import { Icon, Switch } from '../components/';
@@ -24,10 +24,10 @@ export default class Components extends React.Component {
   toggleSwitch = switchNumber => this.setState({ [switchNumber]: !this.state[switchNumber] });
 
   renderItem = ({ item }) => {
-    const {navigate} = this.props.navigation;
+    const { navigate } = this.props.navigation;
 
-    switch(item.type) {
-      case 'switch': 
+    switch (item.type) {
+      case 'switch':
         return (
           <Block row middle space="between" style={styles.rows}>
             <Text size={14}>{item.title}</Text>
@@ -40,11 +40,11 @@ export default class Components extends React.Component {
             />
           </Block>
         );
-      case 'button': 
+      case 'button':
         return (
           <Block style={styles.rows}>
             <TouchableOpacity onPress={() => navigate('Pro')}>
-              <Block row middle space="between" style={{paddingTop:7}}>
+              <Block row middle space="between" style={{ paddingTop: 7 }}>
                 <Text size={14}>{item.title}</Text>
                 <Icon name="stre-right" family="Galio" style={{ paddingRight: 5 }} />
               </Block>
@@ -58,12 +58,11 @@ export default class Components extends React.Component {
   render() {
     const { navigation } = this.props;
     return (
-      <Block flex center
-      ImageBackground = {{fruits}}> 
+      <ImageBackground source={fruits} style={{ width: '100%', height: '100%' }}>
         <ScrollView
           style={styles.components}
           showsVerticalScrollIndicator={false}
-          >
+        >
           {/*{this.renderButtons()}*/}
           <Block flex>
             {/*<Text bold size={16} style={styles.title}>Buttons</Text>*/}
@@ -107,7 +106,7 @@ export default class Components extends React.Component {
             </Block>
           </Block>
         </ScrollView>
-      </Block>
+      </ImageBackground>
     );
   }
 }
