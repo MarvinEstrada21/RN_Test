@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Switch, FlatList, Platform, TouchableOpacity, ScrollView } from "react-native";
+import { StyleSheet, Switch, FlatList, Platform, TouchableOpacity, ScrollView, View, TextInput } from "react-native";
 import { Block, Text, theme, Icon } from "galio-framework";
 
 import materialTheme from '../constants/Theme';
@@ -57,9 +57,10 @@ export default class Steps extends React.Component {
   render() {
     return (
       <ScrollView>
-
+        <View>
+          <TextInput textAlign={'center'} />
+        </View>
       </ScrollView>
-
     );
   }
 }
