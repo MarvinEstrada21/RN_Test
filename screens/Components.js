@@ -6,7 +6,7 @@ import {
   Dimensions,
   ImageBackground
 } from 'react-native';
-import { Button, Block, Text,  theme } from 'galio-framework';
+import { Button, Block, Text, theme } from 'galio-framework';
 
 import { materialTheme } from '../constants/';
 import { Icon, Switch } from '../components/';
@@ -24,10 +24,10 @@ export default class Components extends React.Component {
   toggleSwitch = switchNumber => this.setState({ [switchNumber]: !this.state[switchNumber] });
 
   renderItem = ({ item }) => {
-    const {navigate} = this.props.navigation;
+    const { navigate } = this.props.navigation;
 
-    switch(item.type) {
-      case 'switch': 
+    switch (item.type) {
+      case 'switch':
         return (
           <Block row middle space="between" style={styles.rows}>
             <Text size={14}>{item.title}</Text>
@@ -40,11 +40,11 @@ export default class Components extends React.Component {
             />
           </Block>
         );
-      case 'button': 
+      case 'button':
         return (
           <Block style={styles.rows}>
             <TouchableOpacity onPress={() => navigate('Pro')}>
-              <Block row middle space="between" style={{paddingTop:7}}>
+              <Block row middle space="between" style={{ paddingTop: 7 }}>
                 <Text size={14}>{item.title}</Text>
                 <Icon name="stre-right" family="Galio" style={{ paddingRight: 5 }} />
               </Block>
@@ -58,56 +58,53 @@ export default class Components extends React.Component {
   render() {
     const { navigation } = this.props;
     return (
-      <Block flex center
-      ImageBackground = {{fruits}}> 
-        <ScrollView
-          style={styles.components}
-          showsVerticalScrollIndicator={false}
-          >
-          {/*{this.renderButtons()}*/}
-          <Block flex>
-            {/*<Text bold size={16} style={styles.title}>Buttons</Text>*/}
-            <Text>{"\n"}</Text>
-            <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
-              <Block center>
-                <Text size={24}>{day} - {month} - {year}</Text>
-                <Text>{"\n"}{"\n"}{"\n"}</Text>
-              </Block>
-              <Block center>
-                <Button
-                  onPress={() => navigation.navigate('Hours_Sleep')}
-                  shadowless style={[styles.button, styles.shadow]}>
-                  Horas de Sueño
+      <ScrollView
+        style={styles.components}
+        showsVerticalScrollIndicator={false}
+      >
+        {/*{this.renderButtons()}*/}
+        <Block flex>
+          {/*<Text bold size={16} style={styles.title}>Buttons</Text>*/}
+          <Text>{"\n"}</Text>
+          <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
+            <Block center>
+              <Text size={24}>{day} - {month} - {year}</Text>
+              <Text>{"\n"}{"\n"}{"\n"}</Text>
+            </Block>
+            <Block center>
+              <Button
+                onPress={() => navigation.navigate('Hours_Sleep')}
+                shadowless style={[styles.button, styles.shadow]}>
+                Horas de Sueño
             </Button>
-              </Block>
-              <Block center>
-                <Button
-                  onPress={() => navigation.navigate('Weight')}
-                  shadowless color="info"
-                  style={[styles.button, styles.shadow]}>
-                  Peso
+            </Block>
+            <Block center>
+              <Button
+                onPress={() => navigation.navigate('Weight')}
+                shadowless color="info"
+                style={[styles.button, styles.shadow]}>
+                Peso
             </Button>
-              </Block>
-              <Block center>
-                <Button
-                  onPress={() => navigation.navigate('Steps')}
-                  shadowless color="success"
-                  style={[styles.button, styles.shadow]}>
-                  Pasos
+            </Block>
+            <Block center>
+              <Button
+                onPress={() => navigation.navigate('Steps')}
+                shadowless color="success"
+                style={[styles.button, styles.shadow]}>
+                Pasos
             </Button>
-              </Block>
-              <Block center>
-                <Button
-                  onPress={() => navigation.navigate('Water')}
-                  shadowless color="warning"
-                  style={[styles.button, styles.shadow]}>
-                  Agua
+            </Block>
+            <Block center>
+              <Button
+                onPress={() => navigation.navigate('Water')}
+                shadowless color="warning"
+                style={[styles.button, styles.shadow]}>
+                Agua
             </Button>
-              </Block>
             </Block>
           </Block>
-        </ScrollView>
-      </Block>
+        </Block>
+      </ScrollView>
     );
   }
 }
